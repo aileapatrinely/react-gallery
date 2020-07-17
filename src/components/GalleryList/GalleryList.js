@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 class GalleryList extends Component {
   galleryItems = [
@@ -67,11 +68,7 @@ class GalleryList extends Component {
   render() {
     //map in here
     const newGallery = this.galleryItems.map((item, index) => {
-      return (
-        <li key={index}>
-          <img src={item.path} />
-        </li>
-      );
+      return GalleryItem;
     });
     return <div>{newGallery}</div>;
   }
