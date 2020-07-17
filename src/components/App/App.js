@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import GalleryItem from '../GalleryItem/GalleryItem';
 import GalleryList from '../GalleryList/GalleryList';
+import axios from 'axios';
 
 class App extends Component {
   state = {
@@ -10,11 +11,30 @@ class App extends Component {
         id: '',
         path: '',
         description: '',
-        likes: '',
+        likes: 0,
       },
     ],
   };
 
+  componentDidMount() {
+    this.getFromServer();
+  }
+
+  getFromServer() {
+    axios({
+      method: 'GET',
+      url: '/gallery',
+    })
+      .then((response) => {
+        this.setState({
+          galleryItems: response.data,
+        });
+      })
+      .catch((err) => {
+        console.log('Err:', err);
+        alert('Error in getFromServer');
+      });
+  }
   render() {
     return (
       <div className="App">
@@ -23,7 +43,7 @@ class App extends Component {
         </header>
         <br />
         <p>
-          <GalleryList />
+          <GalleryList getFromServer={this.state.galleryItems} />
         </p>
         <img src="images/goat_small.jpg" />
       </div>

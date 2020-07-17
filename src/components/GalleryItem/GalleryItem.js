@@ -7,8 +7,8 @@ class GalleryItem extends Component {
   render() {
     return (
       <div>
-        <li key={index}>
-          <img onClick={this.showDescription} src={item.path} />
+        <li key={this.props.id}>
+          <img onClick={this.showDescription()} src={this.props.item.path} />
           <button>Like</button>
         </li>
       </div>
