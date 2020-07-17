@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import GalleryItem from '../GalleryItem/GalleryItem';
+import GalleryList from '../GalleryList/GalleryList';
 
 class App extends Component {
   state = {
-    galleryItems: {
-      id: '',
-      path: '',
-      description: '',
-      likes: '',
-    },
+    galleryItems: [
+      {
+        id: '',
+        path: '',
+        description: '',
+        likes: '',
+      },
+    ],
   };
 
   render() {
