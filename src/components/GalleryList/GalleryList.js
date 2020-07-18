@@ -4,8 +4,13 @@ import GalleryItem from '../GalleryItem/GalleryItem';
 class GalleryList extends Component {
   render() {
     //map in here
-    const newGallery = this.props.galleryItems.map((item, id) => {
-      return GalleryItem;
+    const newGallery = this.props.galleryItems.map((item, index) => {
+      return (
+        <li key={this.props.id}>
+          <img onClick={this.showDescription()} src={this.props.item.path} />
+          <button>Like</button>
+        </li>
+      );
     });
     return <div>{newGallery}</div>;
   }

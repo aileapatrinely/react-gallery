@@ -6,27 +6,21 @@ import axios from 'axios';
 
 class App extends Component {
   state = {
-    galleryItems: [
-      {
-        id: '',
-        path: '',
-        description: '',
-        likes: 0,
-      },
-    ],
+    galleryItems: [],
   };
 
   componentDidMount() {
-    this.getFromServer();
+    this.getGallery();
   }
 
-  getFromServer() {
+  getGallery() {
     axios({
       method: 'GET',
       url: '/gallery',
     })
       .then((response) => {
         this.setState({
+          ...this.state.galleryItems,
           galleryItems: response.data,
         });
       })
@@ -43,7 +37,7 @@ class App extends Component {
         </header>
         <br />
         <p>
-          <GalleryList getFromServer={this.state.galleryItems} />
+          <GalleryList gallery={this.state.galleryItems} />
         </p>
         <img src="images/goat_small.jpg" />
       </div>
