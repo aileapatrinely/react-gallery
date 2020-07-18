@@ -41,9 +41,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br />
-        <p>
-          <GalleryList galleryItems={this.state.galleryItems} />
-        </p>
+        <GalleryList galleryItems={this.state.galleryItems} />
         <img src="images/goat_small.jpg" />
       </div>
     );

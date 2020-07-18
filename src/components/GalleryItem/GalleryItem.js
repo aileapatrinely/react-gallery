@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import './GalleryItem.css';
-import Axios from 'axios';
+import axios from 'axios';
 
 class GalleryItem extends Component {
   state = {
-    toggle: true,
+    toggle: false,
   };
   clickToggle = () => {
     this.setState({
       toggle: !this.state.toggle,
     });
   };
-  sendLike(id, likes) {
+  sendLike = (id) => (event) => {
     axios({
       method: 'PUT',
       url: '/:id',
-      data: { likes },
     })
       .then((response) => {
-        res.sendStatus(201);
+        response.sendStatus(201);
       })
       .catch((err) => {
         console.log('err:', err);
         alert('Error in sendLike');
       });
-  }
+  };
   render() {
     let imageRender = <img src={this.props.item.path} />;
     if (this.state.toggle === true) {
@@ -32,8 +31,8 @@ class GalleryItem extends Component {
     }
     return (
       <div>
-        <p onClick={this.clickToggle()}>{imageRender}</p>
-        <button onClick={this.sendLike()}>Like</button>
+        <div onClick={this.clickToggle}>{imageRender}</div>
+        <button onClick={this.sendLike(this.props.item.id)}>Like</button>
       </div>
     );
   }

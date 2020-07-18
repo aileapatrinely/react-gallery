@@ -3,7 +3,6 @@ import GalleryItem from '../GalleryItem/GalleryItem';
 
 class GalleryList extends Component {
   state = {};
-  showDescription = () => {};
   render() {
     //map in here
     const newGallery = this.props.galleryItems.map((item, index) => {
