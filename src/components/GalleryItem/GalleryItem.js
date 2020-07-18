@@ -30,7 +30,7 @@ class GalleryItem extends Component {
       imageRender = <p>{this.props.item.description}</p>;
     }
     return (
-      <div>
+      <div className="divdisplay">
         <div onClick={this.clickToggle}>{imageRender}</div>
         <button onClick={this.sendLike(this.props.item.id)}>Like</button>
       </div>
