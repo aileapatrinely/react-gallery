@@ -9,7 +9,7 @@ class GalleryItem extends Component {
       <div>
         <li key={this.props.id}>
           <img onClick={this.showDescription()} src={this.props.item.path} />
-          <button>Like</button>
+          <button onClick={this.clickLike()}>Like</button>
         </li>
       </div>
     );

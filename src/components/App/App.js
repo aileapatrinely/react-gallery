@@ -6,7 +6,14 @@ import axios from 'axios';
 
 class App extends Component {
   state = {
-    galleryItems: [],
+    galleryItems: [
+      {
+        id: 0,
+        path: '',
+        description: '',
+        likes: 0,
+      },
+    ],
   };
 
   componentDidMount() {
@@ -37,7 +44,7 @@ class App extends Component {
         </header>
         <br />
         <p>
-          <GalleryList gallery={this.state.galleryItems} />
+          <GalleryList getGallery={this.state.galleryItems} />
         </p>
         <img src="images/goat_small.jpg" />
       </div>
