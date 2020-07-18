@@ -5,19 +5,15 @@ class GalleryItem extends Component {
     console.log('Description here');
   };
   render() {
-    const galleryItem = this.props.galleryItem.map((item, index) => {
+    const newGalleryItem = this.props.gimmeDemPics.map((item, index) => {
       return (
-        <li key={this.props.id}>
+        <li key={this.props.item.id}>
           <img onClick={this.showDescription()} src={this.props.item.path} />
           <button onClick={this.clickLike()}>Like</button>
         </li>
       );
     });
-    return (
-      <div>
-        <ul>{galleryItem}</ul>
-      </div>
-    );
+    return <div>{newGalleryItem}</div>;
   }
 }
 
