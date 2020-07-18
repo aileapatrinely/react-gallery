@@ -7,8 +7,8 @@ const galleryItems = [
   },
   {
     id: 2,
-    path: 'images/Tp.JPG',
-    description: 'Thorin and Pippin.',
+    path: 'images/Thorin-1.jpg',
+    description: 'Thorin, looking classy.',
     likes: 0,
   },
   {
@@ -60,4 +60,12 @@ const galleryItems = [
     description: 'My sister with her growing family.',
     likes: 0,
   },
+  {
+    id: 11,
+    path: 'images/2151436_1_0.jpg',
+    description: 'My lovely home in a seedy part of town.',
+    likes: 0,
+  },
 ];
+
+module.exports = galleryItems;
