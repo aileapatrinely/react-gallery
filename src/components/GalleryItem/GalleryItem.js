@@ -17,7 +17,7 @@ class GalleryItem extends Component {
     }
     return (
       <div>
-        <p onClick={this.clickToggle()}></p>
+        <p onClick={this.clickToggle()}>{imageRender}</p>
         <button>Like</button>
       </div>
     );
