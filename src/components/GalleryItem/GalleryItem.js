@@ -11,13 +11,15 @@ class GalleryItem extends Component {
       toggle: !this.state.toggle,
     });
   };
+
   sendLike = (id) => (event) => {
     axios({
       method: 'PUT',
-      url: '/:id',
+      url: 'gallery/like/:id',
     })
       .then((response) => {
         response.sendStatus(201);
+        this.props.getGallery();
       })
       .catch((err) => {
         console.log('err:', err);
