@@ -18,7 +18,7 @@ class GalleryItem extends Component {
       url: 'gallery/like/:id',
     })
       .then((response) => {
-        response.sendStatus(201);
+        // response.sendStatus(201);
         this.props.getGallery();
       })
       .catch((err) => {
