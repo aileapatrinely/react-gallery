@@ -12,10 +12,10 @@ class GalleryItem extends Component {
     });
   };
 
-  sendLike = (id) => (event) => {
+  sendLike = () => (event) => {
     axios({
       method: 'PUT',
-      url: 'gallery/like/:id',
+      url: 'gallery/like/' + this.props.item.id,
     })
       .then((response) => {
         // response.sendStatus(201);
@@ -27,7 +27,9 @@ class GalleryItem extends Component {
       });
   };
   render() {
-    let imageRender = <img src={this.props.item.path} />;
+    let imageRender = (
+      <img src={this.props.item.path} alt={this.props.item.description} />
+    );
     if (this.state.toggle === true) {
       imageRender = <p>{this.props.item.description}</p>;
     }
@@ -35,6 +37,7 @@ class GalleryItem extends Component {
       <div className="divdisplay">
         <div onClick={this.clickToggle}>{imageRender}</div>
         <button onClick={this.sendLike(this.props.item.id)}>Like</button>
+        <p>{this.props.item.likes} likes</p>
       </div>
     );
   }

@@ -19,7 +19,7 @@ class App extends Component {
     this.getGallery();
   }
 
-  getGallery() {
+  getGallery = () => {
     axios({
       method: 'GET',
       url: '/gallery',
@@ -33,7 +33,7 @@ class App extends Component {
         console.log('Err:', err);
         alert('Error in getFromServer');
       });
-  }
+  };
   render() {
     return (
       <div className="App">
@@ -43,7 +43,7 @@ class App extends Component {
         <br />
         <GalleryList
           galleryItems={this.state.galleryItems}
-          gettGallery={this.getGallery}
+          getGallery={this.getGallery}
         />
         <img src="images/goat_small.jpg" />
       </div>
